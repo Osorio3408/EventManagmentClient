@@ -19,9 +19,6 @@ Este proyecto es una solución front-end para gestionar la asistencia a eventos,
 ## Contribución
 Las contribuciones a este proyecto son bienvenidas. No dudes en enviar problemas o solicitudes de extracción para ayudar a mejorar la funcionalidad y la usabilidad del sistema de gestión de eventos.
 
-## Licencia
-Este proyecto está licenciado bajo la [Licencia MIT](https://opensource.org/licenses/MIT). Siéntete libre de usar, modificar y distribuir este software según los términos de la licencia.
-
 ## Contacto
 Para cualquier consulta o asistencia relacionada con este cliente de gestión de eventos, por favor contacta al [Equipo del Proyecto](mailto:yuliamandrey@hotmail.com).
 
