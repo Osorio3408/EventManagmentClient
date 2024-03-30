@@ -107,11 +107,16 @@ export const CreateEvent = () => {
   return (
     <section className="w-full flex h-auto min-h-screen flex-col lg:flex-row">
       <Navbar activeEvent={true} />
-      <div className="w-[100%] bg-white h-screen pt-5 flex flex-col gap-5 lg:overflow-y-auto">
-        <div className="max-w-3xl border p-10 border-neutral-300 bg-green-50 rounded mb-5  w-full mx-auto flex flex-col gap-5">
-          <form className="space-y-4" onSubmit={handleSubmit}>
+      <div className="w-[100%] bg-white h-full pt-5 md:my-auto flex flex-col gap-5 lg:overflow-y-auto">
+        <h2 className="text-center text-3xl md:text-4xl xl:text-5xl 2xl:text-6xl font-bold mb-10 md:mb-20">
+          Crear evento
+        </h2>
+        <div className="2xl:max-w-5xl my-auto xl:max-w-4xl max-w-3xl border p-10 xl:px-16 2xl:px-20 border-neutral-300 bg-neutral-100 rounded mb-5 w-full mx-auto flex flex-col gap-5">
+          <form className="space-y-4 2xl:space-y-10" onSubmit={handleSubmit}>
             <div className="flex flex-col gap-1">
-              <label className="font-semibold" htmlFor="eventName">
+              <label
+                className="font-semibold xl:text-xl text-neutral-600"
+                htmlFor="eventName">
                 Título <span className="text-red-500">*</span>
               </label>
               <input
@@ -120,11 +125,13 @@ export const CreateEvent = () => {
                 id="eventName"
                 value={data.eventName}
                 name="eventName"
-                className="px-3 py-1 border border-neutral-400 outline-none bg-white rounded"
+                className="px-3 py-1 2xl:text-xl text-lg border border-neutral-400 outline-none bg-white rounded xl:py-2"
               />
             </div>
             <div className="flex flex-col gap-1 relative">
-              <label className="font-semibold" htmlFor="eventDescription">
+              <label
+                className="font-semibold xl:text-xl text-neutral-600"
+                htmlFor="eventDescription">
                 Descripción <span className="text-red-500">*</span>
               </label>
               <textarea
@@ -134,7 +141,7 @@ export const CreateEvent = () => {
                 rows="5"
                 value={data.eventDescription}
                 maxLength={255}
-                className={`resize-none outline-none px-3 py-1 bg-white rounded border border-neutral-400 ${
+                className={`resize-none outline-none px-3 py-1 2xl:text-xl text-lg bg-white rounded xl:py-2 border border-neutral-400 ${
                   limit ? "border-red-500" : "border-neutral-400"
                 }`}></textarea>
               <span className="absolute -bottom-4 text-neutral-500 right-0 text-xs">
@@ -142,7 +149,9 @@ export const CreateEvent = () => {
               </span>
             </div>
             <div className="flex flex-col gap-1">
-              <label className="font-semibold" htmlFor="eventTypeEventId">
+              <label
+                className="font-semibold xl:text-xl text-neutral-600"
+                htmlFor="eventTypeEventId">
                 Tipo de evento <span className="text-red-500">*</span>
               </label>
               <select
@@ -150,7 +159,7 @@ export const CreateEvent = () => {
                 id="eventTypeEventId"
                 value={data.eventTypeEventId}
                 onChange={handleChange}
-                className="px-3 py-1 border border-neutral-400 outline-none bg-white rounded">
+                className="px-3 py-1 2xl:text-xl text-lg border border-neutral-400 outline-none bg-white rounded xl:py-2">
                 <option value="">Seleccione el tipo de evento</option>
                 {typeEvents.map((event) => (
                   <option key={event.typeEventId} value={event.typeEventId}>
@@ -160,7 +169,9 @@ export const CreateEvent = () => {
               </select>
             </div>
             <div className="flex flex-col gap-1">
-              <label className="font-semibold" htmlFor="eventStartDate">
+              <label
+                className="font-semibold xl:text-xl text-neutral-600"
+                htmlFor="eventStartDate">
                 Fecha y hora de inicio:
               </label>
               <input
@@ -168,12 +179,14 @@ export const CreateEvent = () => {
                 name="eventStartDate"
                 id="eventStartDate"
                 value={data.eventStartDate}
-                className="px-3 py-1 border border-neutral-400 outline-none bg-white rounded"
+                className="px-3 py-1 2xl:text-xl text-lg border border-neutral-400 outline-none bg-white rounded xl:py-2"
                 onChange={handleChange}
               />
             </div>
             <div className="flex flex-col gap-1">
-              <label className="font-semibold" htmlFor="eventEndDate">
+              <label
+                className="font-semibold xl:text-xl text-neutral-600"
+                htmlFor="eventEndDate">
                 Fecha y hora de finalización:
               </label>
               <input
@@ -181,7 +194,7 @@ export const CreateEvent = () => {
                 name="eventEndDate"
                 id="eventEndDate"
                 value={data.eventEndDate}
-                className="px-3 py-1 border border-neutral-400 outline-none bg-white rounded"
+                className="px-3 py-1 2xl:text-xl text-lg border border-neutral-400 outline-none bg-white rounded xl:py-2"
                 onChange={handleChange}
               />
             </div>
@@ -195,15 +208,15 @@ export const CreateEvent = () => {
                 name="eventLimit"
                 value={data.eventLimit}
                 onChange={handleChange}
-                className="px-3 py-2 border border-neutral-400 rounded-lg outline-none focus:border-indigo-600"
+                className="px-3 py-2 border border-neutral-400 rounded xl:py-2-lg outline-none focus:border-indigo-600"
                 min={1}
                 required
               />
             </div> */}
-            <div className="w-full">
+            <div className="w-full bg-slate-200">
               <button
                 type="submit"
-                className="w-[250px] px-3 py-1 bg-gradient-to-t from-indigo-500 to-indigo-700 hover:to-indigo-800 hover:from-indigo-600 text-white font-semibold rounded">
+                className="w-full 2xl:text-2xl xl:text-xl text-lg px-3 py-1 xl:py-2 mx-auto bg-gradient-to-t from-indigo-500 to-indigo-700 hover:to-indigo-800 hover:from-indigo-600 text-white font-semibold rounded">
                 Crear evento
               </button>
             </div>

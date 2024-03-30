@@ -54,6 +54,7 @@ export const Navbar = ({
 
         // Por ejemplo, para obtener el rol
         setUserRole(decodedToken.details[0].UserRole);
+        console.log(decodedToken.details[0]);
         //  console.log("El rol del usuario es:", userRole);
 
         // Puedes hacer lo que necesites con la información del token
@@ -94,7 +95,7 @@ export const Navbar = ({
     <>
       <div
         className={`h-screen ${
-          closeNav ? "w-[10%]" : "w-[20%]"
+          closeNav ? "w-[10%]" : "xl:w-[18%] 2xl:w-[15%]"
         } hidden lg:flex transition-all duration-300 relative bg-neutral-900 text-white  flex-col gap-y-24 border-r border-indigo-950 `}>
         <div className="absolute right-2 top-2">
           {closeNav ? (
@@ -116,7 +117,9 @@ export const Navbar = ({
           )}
         </div>
         <div className="w-full mt-12">
-          <h1 className="text-center text-2xl ">Event Managment</h1>
+          <h1 className="text-center text-2xl 2xl:text-3xl 2xl:font-bold font-semibold">
+            Event Managment
+          </h1>
         </div>
         <div className="px-5 w-full mx-auto overflow-y-auto scroll h-[400px]">
           <ul
@@ -137,7 +140,7 @@ export const Navbar = ({
                     setDownEvents(!downEvents);
                   }}
                   className="flex items-center justify-between group/Events gap-x-5 cursor-pointer hover:bg-neutral-800 px-2 py-1">
-                  <span className="flex items-center gap-2">
+                  <span className="flex items-center gap-2 2xl:text-2xl xl:text-xl text-lg 2xl:font-semibold xl:font-medium">
                     <Calendar
                       size={18}
                       className={`${activeEvent && "text-indigo-900"}`}
@@ -157,21 +160,21 @@ export const Navbar = ({
                   <div className="border-l border-indigo-800 flex flex-col gap-y-3 mt-1 ml-2">
                     <Link
                       to={"/"}
-                      className={`w-full hover:bg-neutral-800 pl-3 cursor-pointer py-1 ${
+                      className={`w-full hover:bg-neutral-800 pl-3 cursor-pointer py-1 2xl:text-xl xl:text-lg ${
                         avaible ? "border-l-4" : "hover:border-l-4"
                       } border-indigo-800`}>
                       Disponibles
                     </Link>
                     <Link
                       to={"/Pending"}
-                      className={`w-full hover:bg-neutral-800 pl-3 cursor-pointer py-1 ${
+                      className={`w-full hover:bg-neutral-800 pl-3 cursor-pointer py-1 2xl:text-xl xl:text-lg ${
                         pending ? "border-l-4" : "hover:border-l-4"
                       } border-indigo-800`}>
                       Pendientes
                     </Link>
                     <Link
                       to={"/History"}
-                      className={`w-full hover:bg-neutral-800 pl-3 cursor-pointer py-1 ${
+                      className={`w-full hover:bg-neutral-800 pl-3 cursor-pointer py-1 2xl:text-xl xl:text-lg ${
                         history ? "border-l-4" : "hover:border-l-4"
                       } border-indigo-800`}>
                       Historial
@@ -180,7 +183,7 @@ export const Navbar = ({
                       userRole === "Administrador") && (
                       <Link
                         to={"/MyEvents"}
-                        className={`w-full hover:bg-neutral-800 pl-3 cursor-pointer py-1 ${
+                        className={`w-full hover:bg-neutral-800 pl-3 cursor-pointer py-1 2xl:text-xl xl:text-lg ${
                           activeMyEvents ? "border-l-4" : "hover:border-l-4"
                         } border-indigo-800`}>
                         Mis eventos
@@ -190,7 +193,7 @@ export const Navbar = ({
                       userRole === "Administrador") && (
                       <Link
                         to={"/NewEvent"}
-                        className="border border-indigo-900 w-max ml-3 px-7 hover:bg-indigo-900 flex items-center gap-2 rounded">
+                        className="border border-indigo-900 w-max ml-3 px-7 xl:px-10 xl:py-1 xl:font-medium 2xl:px-10 2xl:py-2 2xl:text-xl 2xl:font-semibold hover:bg-indigo-900 flex items-center gap-2 rounded">
                         Crear{" "}
                         <span>
                           <Plus size={18} />
@@ -212,7 +215,7 @@ export const Navbar = ({
                   }}
                   className="flex items-center justify-between group/Groups gap-x-5 cursor-pointer hover:bg-neutral-800 px-2 py-1"
                 >
-                  <span className="flex items-center gap-2">
+                  <span className="flex items-center gap-2 2xl:text-2xl xl:text-xl text-lg 2xl:font-semibold xl:font-medium">
                     <Users2
                       size={18}
                       className={`${activeGroups && "text-indigo-900"}`}
@@ -232,13 +235,13 @@ export const Navbar = ({
                   <div className="border-l border-indigo-800 flex flex-col gap-y-3 mt-1 ml-2">
                     <Link
                       to={"/Groups/grupo1"}
-                      className={`w-full hover:bg-neutral-800 pl-3 cursor-pointer py-1 hover:border-l-4 border-indigo-800`}
+                      className={`w-full hover:bg-neutral-800 pl-3 cursor-pointer py-1 2xl:text-xl xl:text-lg hover:border-l-4 border-indigo-800`}
                     >
                       Grupo 1
                     </Link>
                     <Link
                       to={"/Groups/grupo2"}
-                      className={`w-full hover:bg-neutral-800 pl-3 cursor-pointer py-1 hover:border-l-4 border-indigo-800`}
+                      className={`w-full hover:bg-neutral-800 pl-3 cursor-pointer py-1 2xl:text-xl xl:text-lg hover:border-l-4 border-indigo-800`}
                     >
                       Grupo 2
                     </Link>
@@ -258,7 +261,7 @@ export const Navbar = ({
                       }}
                       className="flex items-center justify-between group/Groups gap-x-5 cursor-pointer hover:bg-neutral-800 px-2 py-1"
                     >
-                      <span className="flex items-center gap-2">
+                      <span className="flex items-center gap-2 2xl:text-2xl xl:text-xl text-lg 2xl:font-semibold xl:font-medium">
                         <Users
                           size={18}
                           className={`${activeMyGroups && "text-indigo-900"}`}
@@ -278,13 +281,13 @@ export const Navbar = ({
                       <div className="border-l border-indigo-800 flex flex-col gap-y-3 mt-1 ml-2">
                         <Link
                           to={"/MyGroups/GrupoMio1"}
-                          className={`w-full hover:bg-neutral-800 pl-3 cursor-pointer py-1 hover:border-l-4 border-indigo-800`}
+                          className={`w-full hover:bg-neutral-800 pl-3 cursor-pointer py-1 2xl:text-xl xl:text-lg hover:border-l-4 border-indigo-800`}
                         >
                           Grupo 1
                         </Link>
                         <Link
                           to={"/MyGroups/GrupoMio2"}
-                          className={`w-full hover:bg-neutral-800 pl-3 cursor-pointer py-1 hover:border-l-4 border-indigo-800`}
+                          className={`w-full hover:bg-neutral-800 pl-3 cursor-pointer py-1 2xl:text-xl xl:text-lg hover:border-l-4 border-indigo-800`}
                         >
                           Grupo 2
                         </Link>
@@ -315,7 +318,7 @@ export const Navbar = ({
                     <Link
                       to={"/Users"}
                       className="flex items-center justify-between group/Groups gap-x-5 cursor-pointer hover:bg-neutral-800 px-2 py-1">
-                      <span className="flex items-center gap-2">
+                      <span className="flex items-center gap-2 2xl:text-2xl xl:text-xl text-lg 2xl:font-semibold xl:font-medium">
                         <User
                           size={18}
                           className={`${activeUsers && "text-indigo-900"}`}
@@ -330,7 +333,7 @@ export const Navbar = ({
           </ul>
         </div>
         <div
-          className={`w-full h-auto absolute bottom-2 px-8  text-center ${
+          className={`w-full h-auto absolute bottom-2  text-center ${
             closeNav && "flex items-center  text-center px-[41%]"
           }`}>
           {closeNav ? (
@@ -340,8 +343,8 @@ export const Navbar = ({
           ) : (
             <button
               onClick={handleLogout}
-              className="flex items-center justify-between group/Groups gap-x-5 cursor-pointer hover:bg-neutral-800 px-2 py-2">
-              <span className="flex items-center gap-2">
+              className="flex items-center w-full justify-between mx-auto group/Groups gap-x-5 cursor-pointer hover:bg-neutral-800 px-2 py-2">
+              <span className="flex items-center gap-2 2xl:text-2xl xl:text-xl text-lg 2xl:font-semibold xl:font-medium mx-auto">
                 <LogOut size={18} />
                 Cerrar sesión
               </span>
@@ -382,7 +385,7 @@ export const Navbar = ({
                     setDownEvents(!downEvents);
                   }}
                   className="flex items-center justify-between group/Events gap-x-5 cursor-pointer hover:bg-neutral-800 px-2 py-2">
-                  <span className="flex items-center gap-2">
+                  <span className="flex items-center gap-2 2xl:text-2xl xl:text-xl text-lg 2xl:font-semibold xl:font-medium">
                     <Calendar
                       size={18}
                       className={`${activeEvent && "text-indigo-900"}`}
@@ -449,7 +452,7 @@ export const Navbar = ({
                   }}
                   className="flex items-center justify-between group/Groups gap-x-5 cursor-pointer hover:bg-neutral-800 px-2 py-2"
                 >
-                  <span className="flex items-center gap-2">
+                  <span className="flex items-center gap-2 2xl:text-2xl xl:text-xl text-lg 2xl:font-semibold xl:font-medium">
                     <Users2
                       size={18}
                       className={activeGroups && "text-indigo-800"}
@@ -490,7 +493,7 @@ export const Navbar = ({
                   }}
                   className="flex items-center justify-between group/Groups gap-x-5 cursor-pointer hover:bg-neutral-800 px-2 py-1"
                 >
-                  <span className="flex items-center gap-2">
+                  <span className="flex items-center gap-2 2xl:text-2xl xl:text-xl text-lg 2xl:font-semibold xl:font-medium">
                     <Users
                       size={18}
                       className={`${activeMyGroups && "text-indigo-900"}`}
@@ -510,13 +513,13 @@ export const Navbar = ({
                   <div className="border-l border-indigo-800 flex flex-col gap-y-3 mt-1 ml-2">
                     <Link
                       to={"/MyGroups/Grupo1"}
-                      className={`w-full hover:bg-neutral-800 pl-3 cursor-pointer py-1 hover:border-l-4 border-indigo-800`}
+                      className={`w-full hover:bg-neutral-800 pl-3 cursor-pointer py-1 2xl:text-xl xl:text-lg hover:border-l-4 border-indigo-800`}
                     >
                       Grupo 1
                     </Link>
                     <Link
                       to={"/MyGroups/Grupo2"}
-                      className={`w-full hover:bg-neutral-800 pl-3 cursor-pointer py-1 hover:border-l-4 border-indigo-800`}
+                      className={`w-full hover:bg-neutral-800 pl-3 cursor-pointer py-1 2xl:text-xl xl:text-lg hover:border-l-4 border-indigo-800`}
                     >
                       Grupo 2
                     </Link>
@@ -539,7 +542,7 @@ export const Navbar = ({
                 <Link
                   to={"/Users"}
                   className="flex items-center justify-between group/Groups gap-x-5 cursor-pointer hover:bg-neutral-800 px-2 py-1">
-                  <span className="flex items-center gap-2">
+                  <span className="flex items-center gap-2 2xl:text-2xl xl:text-xl text-lg 2xl:font-semibold xl:font-medium">
                     <User size={18} />
                     Usuarios
                   </span>
@@ -549,7 +552,7 @@ export const Navbar = ({
                 <button
                   onClick={handleLogout}
                   className="flex items-center justify-between group/Groups gap-x-5 cursor-pointer hover:bg-neutral-800 px-2 py-2">
-                  <span className="flex items-center gap-2">
+                  <span className="flex items-center gap-2 2xl:text-2xl xl:text-xl text-lg 2xl:font-semibold xl:font-medium">
                     <LogOut size={18} />
                     Cerrar sesión
                   </span>

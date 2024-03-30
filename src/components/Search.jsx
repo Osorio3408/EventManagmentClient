@@ -1,4 +1,4 @@
-import { SearchCheck } from "lucide-react";
+import { SearchIcon } from "lucide-react";
 import React, { useEffect, useState } from "react";
 
 export const Search = ({ onChange, onChageStartDate, onChageEndDate }) => {
@@ -32,7 +32,7 @@ export const Search = ({ onChange, onChageStartDate, onChageEndDate }) => {
   };
 
   return (
-    <div className="max-w-4xl w-full bg-neutral-50 space-y-5 mx-auto h-auto border border-neutral-300 py-5 px-3 rounded">
+    <div className="xl:max-w-4xl 2xl:max-w-5xl w-full bg-neutral-50 space-y-5 mx-auto h-auto border border-neutral-300 py-5 px-3 2xl:px-8 2xl:py-12 rounded">
       <div className="flex gap-5 flex-col lg:flex-row">
         <div className="w-full relative">
           <input
@@ -42,10 +42,10 @@ export const Search = ({ onChange, onChageStartDate, onChageEndDate }) => {
             placeholder="Buscar.."
             value={searchText}
             onChange={handleInputChange} // Maneja cambios en el input
-            className="outline-none px-2 py-1 border w-full border-neutral-300 rounded"
+            className="outline-none px-2 py-1 2xl:py-2 border w-full border-neutral-300 rounded 2xl:text-xl"
           />
-          <span className="absolute bottom-2 right-2">
-            <SearchCheck size={20} />
+          <span className="absolute right-2 bottom-[4px] 2xl:bottom-[8px]">
+            <SearchIcon size={18} />
           </span>
         </div>
         {/* <select className="border w-full lg:w-[20%] border-neutral-300 rounded px-5 py-1 bg-white">
@@ -59,7 +59,7 @@ export const Search = ({ onChange, onChageStartDate, onChageEndDate }) => {
           id="startDate"
           value={startDate} // Agrega un valor controlado para la fecha de inicio
           onChange={handleStartDate} // Maneja cambios en la fecha de inicio
-          className="border border-neutral-300 px-2 py-1 rounded w-full lg:w-[30%]"
+          className="border border-neutral-300 px-2 py-1 2xl:py-2 2xl:text-xl rounded w-full lg:w-[30%]"
         />
         <input
           type="datetime-local"
@@ -67,7 +67,7 @@ export const Search = ({ onChange, onChageStartDate, onChageEndDate }) => {
           id="endDate"
           value={endDate} // Agrega un valor controlado para la fecha final
           onChange={handleEndDate} // Maneja cambios en la fecha final
-          className="border border-neutral-300 px-2 py-1 rounded w-full lg:w-[30%]"
+          className="border border-neutral-300 px-2 py-1 2xl:py-2 2xl:text-xl rounded w-full lg:w-[30%]"
         />
         {/* <select className="border w-full lg:w-[30%] border-neutral-300 rounded px-5 py-1 bg-white">
           <option>Grupos</option>

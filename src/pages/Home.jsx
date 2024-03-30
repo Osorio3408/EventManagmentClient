@@ -59,7 +59,7 @@ export const Home = () => {
       fetchUrl = `http://localhost:3000/api/getEventsPending/${userId}`;
     }
 
-    if(history){
+    if (history) {
       fetchUrl = `http://localhost:3000/api/events-history/${userId}`;
     }
 
@@ -80,18 +80,19 @@ export const Home = () => {
         pending={pending}
         history={history}
       />
-      <div className="w-[100%] bg-white h-screen pt-5 flex flex-col gap-5 ">
+      <div className="w-full bg-white h-screen pt-5 flex flex-col gap-5 ">
         <ViewEvents
           onSearchChange={setSearchText}
           onStartDate={setStartDate}
-          onEndDate={setEndDate}
-        >
+          onEndDate={setEndDate}>
           {avaible && Array.isArray(events) && events.length === 0 ? ( // Si no hay eventos disponibles
-            <div className="text-center mt-5 text-gray-500">
-              No hay eventos disponibles en este momento.
+            <div className="mt-5 col-span-3 space-y-10 my-auto h-full">
+              <p className="text-center w-full 2xl:font-bold 2xl:text-3xl md:font-semibold xl:text-2xl md:text-xl">
+                No hay eventos disponibles en este momento.
+              </p>
+              <img src="/nodata.svg" alt="no data" className="mx-auto w-80" />
             </div>
           ) : (
-           
             events
               .filter((event) => {
                 const eventStartDate = new Date(event.eventStartDate);

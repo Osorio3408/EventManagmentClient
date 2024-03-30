@@ -13,16 +13,16 @@
 
 
 ::-webkit-scrollbar-thumb {
-    background-color: #9f1239;
+    background-color: #6018d4;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: #881337;
+    background-color: #6018d4;
 }
 
 ::selection {
     background-color: #242424;
-    color:#e11d48   /* Color del texto seleccionado */
+    color:#2e2a83   /* Color del texto seleccionado */
 }
 
 @layer base {

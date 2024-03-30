@@ -3,6 +3,7 @@ import { ModalViewEvent } from "./ModalViewEvent";
 import { ModalEditEvent } from "./ModalEditEvent";
 import { ModalStatsEvent } from "./ModalStatsEvent";
 import { toast } from "react-toastify";
+import { Info } from "lucide-react";
 
 export const CardEvent = ({
   title,
@@ -196,65 +197,77 @@ export const CardEvent = ({
 
   return (
     <div
-      className={`w-[320px] border ${dontShowMyEventsAvaible && "hidden"} ${
-        dontShowAviable && "hidden"
-      } ${inProcess && "hidden"} ${
+      className={`w-[340px] 2xl:w-[360px] border rounded ${
+        dontShowMyEventsAvaible && "hidden"
+      } ${dontShowAviable && "hidden"} ${inProcess && "hidden"} ${
         eventDetailStatus == 1 && "border-neutral-300"
       } ${eventDetailStatus == 2 && "border-green-400"} ${
         eventDetailStatus == 3 && "border-indigo-400"
-      } h-[300px] py-3 rounded px-1 flex flex-col gap-3 ${
+      } h-[300px] py-3 rounded px-1 2xl:px-4 flex flex-col gap-3 ${
         history && "bg-gray-200 bg-opacity-80 text-opacity-80 opacity-70"
       }`}>
       <div>
-        <h2 className="text-2xl font-semibold px-1 w-auto truncate">{title}</h2>
+        <h2 className="text-2xl font-semibold px-1 w-auto truncate xl:text-3xl">
+          {title}
+        </h2>
       </div>
-      <hr />
-      <div className="h-[140px]  overflow-y-auto px-1 ">
-        <p className="text-sm text-neutral-600">{description}</p>
+      <div className="h-[160px]  overflow-y-auto px-1 ">
+        <p className="text-sm text-neutral-600 2xl:text-xl xl:text-lg">
+          {description}
+        </p>
       </div>
-      <div className="flex flex-col px-1 gap-2">
-        <p className="text-sm font-semibold text-neutral-700 flex flex-col ">
-          Fecha de inicio: <span className="text-xs">{startDate}</span>
-        </p>
-        <p className="text-sm font-semibold text-neutral-700 flex flex-col">
-          Fecha de finalización:
-          <span className="text-xs">{endDate}</span>
-        </p>
+      <div className="flex justify-between mt-4">
+        <div className="flex flex-col">
+          <p className="text-sm font-semibold text-neutral-700 2xl:text-xl xl:text-lg">
+            Fecha de inicio
+          </p>
+          <p className="text-xs text-neutral-500 2xl:text-base 2xl:font-medium xl:text-sm">
+            {startDate}
+          </p>
+        </div>
+        <div className="flex flex-col">
+          <p className="text-sm font-semibold text-neutral-700 2xl:text-xl xl:text-lg">
+            Fecha de finalización
+          </p>
+          <p className="text-xs text-neutral-500 2xl:text-base 2xl:font-medium xl:text-sm">
+            {endDate}
+          </p>
+        </div>
       </div>
       {!history && (
-        <div className={`grid grid-cols-2 gap-y-1 place-items-center`}>
+        <div className="bg-neutral-100 p-3 flex justify-between">
           {!myEvent && (
             <button
               onClick={handleOpenModal}
-              className="w-32 py-1 rounded-md text-white font-semibold bg-indigo-600 hover:bg-indigo-700">
+              className="text-white font-semibold bg-indigo-600 py-2 px-4 2xl:px-8 rounded-md hover:bg-indigo-700 focus:outline-none">
               Ver más
             </button>
           )}
           {myEvent && (
             <button
               onClick={handleOpenModalEdit}
-              className="w-32 py-1 rounded-md text-white font-semibold bg-indigo-600 hover:bg-indigo-700">
+              className="text-white font-semibold bg-indigo-600 py-2 px-4 2xl:px-8 rounded-md hover:bg-indigo-700 focus:outline-none">
               Editar
             </button>
           )}
           {!pending && !myEvent && eventDetailStatus == 1 && (
             <button
               onClick={handleAttendEvent}
-              className="w-32 py-1 rounded-md text-white font-semibold bg-indigo-600 hover:bg-indigo-700">
+              className="text-white font-semibold bg-indigo-600 py-2 px-4 2xl:px-10 rounded-md hover:bg-indigo-700 focus:outline-none">
               Asistir
             </button>
           )}
           {myEvent && (
             <button
               onClick={handleOpenModalStats}
-              className="w-32 py-1 rounded-md text-white font-semibold bg-indigo-600 hover:bg-indigo-700">
+              className="text-white font-semibold bg-indigo-600 py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none">
               Estadísticas
             </button>
           )}
           {myEvent && (
             <button
               onClick={handleToken}
-              className="w-full py-1 rounded-md col-span-2 text-white font-semibold bg-indigo-600 hover:bg-indigo-700">
+              className="text-white font-semibold bg-indigo-600 py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none">
               Generar Token
             </button>
           )}
@@ -294,17 +307,25 @@ export const CardEvent = ({
       )}
       {showConfirmationModal && (
         <div className="fixed inset-0 bg-gray-500 bg-opacity-50 flex justify-center items-center">
-          <div className="bg-white p-4 rounded-lg">
-            <p>¿Estás seguro de que quieres asistir a este evento?</p>
-            <div className="flex justify-center mt-4">
+          <div className="bg-white px-8 py-6 rounded-lg">
+            <div className="text-center flex justify-center p-2">
+              <Info className="text-indigo-500" size={30} />
+            </div>
+            <div className="text-center">
+              <h2 className="text-2xl font-bold ">Confirmar Asistencia</h2>
+              <p className="text-gray-500">
+                ¿Estás seguro de que quieres asistir a este evento?
+              </p>
+            </div>
+            <div className="flex flex-col justify-center mt-4 gap-2">
               <button
                 onClick={confirmAttendEvent}
-                className="mr-2 px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700">
-                Sí
+                className=" px-4 py-2 bg-indigo-600 text-white rounded-md font-semibold hover:bg-indigo-700">
+                Aceptar
               </button>
               <button
                 onClick={() => setShowConfirmationModal(false)}
-                className="px-4 py-2 bg-gray-300 text-gray-800 rounded-md hover:bg-gray-400">
+                className="px-4 py-2 border text-gray-800 rounded-md font-semibold hover:bg-gray-400 hover:bg-opacity-20">
                 Cancelar
               </button>
             </div>
